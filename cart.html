@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Shop - Cart</title>
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Let's Shop</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="account.html">Account</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><button id="logout-button">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="cart" class="cart-container">
+        <!-- Cart items will be displayed here -->
+    </div>
+
+    <!-- Message display section -->
+    <div id="cart-message" style="color: red; font-weight: bold; margin-top: 10px;"></div> <!-- Message will show here -->
+
+    <div id="total-price">Total Price: $0.00</div>
+
+    <!-- Proceed to Payment Button -->
+    <div class="proceed-payment-container">
+        <button id="proceed-payment-button" class="proceed-payment-button">Proceed to Payment</button>
+    </div>
+
+    <script type="module" src="js/cart.js"></script>
+</body>
+</html>

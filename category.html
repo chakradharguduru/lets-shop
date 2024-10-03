@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Management</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Category Management</h1>
+        
+        <!-- Back button -->
+        <button id="back-btn" onclick="goBack()">&#8592; Back</button>
+
+        <!-- Section to display existing categories -->
+        <div class="existing-categories">
+            <h2>Existing Categories</h2>
+            <ul id="category-list">
+                <!-- Categories will be loaded here via JavaScript -->
+            </ul>
+        </div>
+
+        <!-- Form to add a new category -->
+        <div class="form-container">
+            <form id="category-form">
+                <h2>Add New Category</h2>
+                <input type="text" id="category-name" placeholder="Category Name" required>
+                <button type="submit">Add Category</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/category.js"></script>
+
+    <script>
+        // Function to navigate back to the admin page
+        function goBack() {
+            window.location.href = 'admin.html'; // Change to your admin page URL
+        }
+    </script>
+</body>
+</html>

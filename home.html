@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Shop - Home</title>
+    <link rel="stylesheet" href="css/home.css">
+    <style>
+        /* Add styles for the search bar and logout button */
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        #search-bar {
+            width: 200px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #search-btn {
+            margin-left: 10px;
+            padding: 5px 10px;
+            border: none;
+            background-color: #4CAF50; /* Green background for search button */
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logout-button {
+            margin-left: 20px;
+            padding: 5px 10px;
+            border: none;
+            background-color: #f44336; /* Red background for logout */
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .sale-image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .sale-image-container img {
+            max-width: 100%;
+            height: 50%;
+        }
+
+        .products-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .product-card {
+            width: 200px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 700px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        .modal-image-container {
+            flex-basis: 45%;
+            text-align: center;
+        }
+
+        .modal-image-container img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .modal-details-container {
+            flex-basis: 50%;
+            padding-left: 20px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: -30px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .quantity-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .quantity-input {
+            text-align: center;
+            width: 50px;
+            margin: 0 10px;
+        }
+
+        #add-to-cart {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Let's Shop</div>
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search for products...">
+            <button id="search-btn">Search</button> <!-- Added Search button -->
+        </div>
+        
+        <nav class="nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="account.html">Account</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+        <button id="logout-button" class="logout-button">Logout</button>
+    </header>
+
+    <!-- Sale Image Section -->
+    <div class="sale-image-container">
+        <img src="pics/sale.png" alt="Sale Image">
+    </div>
+
+    <!-- Products Section -->
+    <div id="products" class="products-container">
+        <!-- Products will be displayed here -->
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <div class="modal-image-container">
+                <img id="modal-product-image" src="" alt="Product Image">
+            </div>
+            <div class="modal-details-container">
+                <h3 id="modal-product-name"></h3>
+                <p id="modal-product-description"></p>
+                <p>Price: $<span id="modal-product-price"></span></p>
+                <div class="quantity-container">
+                    <button id="decrease-quantity">-</button>
+                    <input type="number" id="quantity" value="1" min="1" class="quantity-input">
+                    <button id="increase-quantity">+</button>
+                </div>
+                <button id="add-to-cart" class="add-to-cart-button">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/home.js"></script>
+
+    <script>
+        // Logout functionality
+        document.getElementById('logout-button').onclick = function() {
+            // Here you can clear any session data if necessary
+            alert('Logout successful!');
+            window.location.href = 'index.html'; // Redirect to index.html
+        };
+    </script>
+</body>
+</html>

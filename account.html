@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account - Let's Shop</title>
+    <link rel="stylesheet" href="css/account.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9; /* Light background for better readability */
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #4CAF50; /* Green background for header */
+            padding: 10px;
+            color: white;
+        }
+        .nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+        .nav ul li {
+            margin: 0 15px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+        }
+        .logout-button {
+            background-color: #f44336; /* Red background for logout */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .account-container {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: white; /* White background for account details */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        #customer-details, #orders-container {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9; /* Light background for details */
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Let's Shop</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="account.html">Account</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+        <button id="logout-button" class="logout-button">Logout</button>
+    </header>
+
+    <div class="account-container">
+        <h2>Your Account Details</h2>
+        <div id="customer-details"></div>
+
+    </div>
+
+    
+
+    <script>
+        // Logout functionality
+        document.getElementById('logout-button').onclick = function() {
+            alert('Logout successful!');
+            window.location.href = 'index.html'; // Redirect to index.html
+        };
+    </script>
+
+    <script src="js/account.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Products</title>
+    <link rel="stylesheet" href="css/inventory.css">
+    <style>
+        /* Inline styles for buttons */
+        .small-button {
+            font-size: 14px;
+            padding: 5px 10px;
+            margin: 5px;
+            max-width: 100px; /* Set a maximum width */
+            white-space: nowrap; /* Prevent text from wrapping */
+        }
+        .pagination-controls {
+            margin: 10px 0;
+            display: flex; /* Use flexbox to align buttons */
+            justify-content: center; /* Center the buttons */
+            align-items: center; /* Center vertically */
+        }
+        .product-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .product-details {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Navigation Bar for CRUD Options -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#" id="back-btn" onclick="goBack()">&#8592; Back</a></li> <!-- Back button added here -->
+            <li><a href="create.html" id="create-btn">Create</a></li>
+            <li><a href="read.html" id="read-btn">Read</a></li>
+            <li><a href="#" id="update-btn">Update</a></li>
+            <li><a href="#" id="delete-btn">Delete</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content: Read Products Section -->
+    <div class="main-content">
+        <div id="read-options" class="read-section">
+            <h2>Read Products</h2>
+            <label for="read-method"></label>
+            <select id="read-method">
+                <option value="" disabled selected>Select Read Method</option>
+                <option value="name">Read by Name</option>
+                <option value="category">Read by Category</option>
+                <option value="all">Read All</option>
+            </select>
+
+            <!-- Search by Name -->
+            <div id="read-name" style="display: none;">
+                <input type="text" id="search-name" placeholder="Enter Product Name">
+                <button id="search-by-name" class="small-button">Search</button>
+            </div>
+
+            <!-- Search by Category -->
+            <div id="read-category" style="display: none;">
+                <label for="search-category">Select Category:</label>
+                <select id="search-category"></select>
+                <button id="search-by-category" class="small-button">Search</button>
+            </div>
+
+            <!-- Set Items Per Page -->
+            <div>
+                <input type="number" id="items-per-page" placeholder="Items per page" min="1" value="10">
+                <button id="set-items" class="small-button">Set</button>
+            </div>
+
+            <!-- Display Results -->
+            <div id="read-results" class="product-display">
+                <!-- Products will be displayed here -->
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="pagination-controls">
+                <button id="prev-page" class="small-button">Previous</button>
+                <span id="page-info"></span>
+                <button id="next-page" class="small-button">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/read.js"></script>
+
+    <script>
+        // Function to navigate back to the admin page
+        function goBack() {
+            window.location.href = 'admin.html'; // Change to your admin page URL
+        }
+    </script>
+</body>
+</html>

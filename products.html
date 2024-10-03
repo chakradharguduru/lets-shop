@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Shop - Products</title>
+    <link rel="stylesheet" href="css/products.css">
+    <style>
+        /* Add styles for the product card and modal */
+        .products-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        .product-card {
+            width: 200px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .product-card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .quantity-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .quantity-input {
+            text-align: center;
+            width: 50px;
+        }
+
+        #add-to-cart {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Let's Shop</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="account.html">Account</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Category Selection -->
+    <div class="category-selection">
+        <label for="category-dropdown">Select a Category:</label>
+        <select id="category-dropdown">
+            <option value="all">All Categories</option>
+            <!-- Categories will be dynamically added here -->
+        </select>
+    </div>
+
+    <!-- Products Section -->
+    <div id="products" class="products-container">
+        <!-- Products will be displayed here -->
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <img id="modal-product-image" src="" alt="Product Image" style="max-width: 100%; height: auto;">
+            <h3 id="modal-product-name"></h3>
+            <p id="modal-product-description"></p>
+            <p>Price: $<span id="modal-product-price"></span></p>
+            <div class="quantity-container">
+                <button id="decrease-quantity">-</button>
+                <input type="number" id="quantity" value="1" min="1" class="quantity-input">
+                <button id="increase-quantity">+</button>
+            </div>
+            <button id="add-to-cart" class="add-to-cart-button">Add to Cart</button>
+        </div>
+    </div>
+
+    <script src="js/products.js"></script>
+    <script>
+        // Sample data for products (can be replaced with real data from the database)
+        const products = [
+            { id: 1, name: 'Product 1', description: 'Description of Product 1', price: 100, image: 'pics/product1.jpg' },
+            { id: 2, name: 'Product 2', description: 'Description of Product 2', price: 150, image: 'pics/product2.jpg' },
+            // Add more products as needed
+        ];
+
+        // Get elements
+        const productsContainer = document.getElementById('products');
+        const productModal = document.getElementById('product-modal');
+        const modalProductName = document.getElementById('modal-product-name');
+        const modalProductDescription = document.getElementById('modal-product-description');
+        const modalProductPrice = document.getElementById('modal-product-price');
+        const modalProductImage = document.getElementById('modal-product-image');
+        const closeModal = document.getElementById('close-modal');
+
+        // Display products on the page
+        products.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            productCard.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>$${product.price}</p>
+            `;
+
+            // Click event to open the modal with product details
+            productCard.onclick = function() {
+                modalProductName.textContent = product.name;
+                modalProductDescription.textContent = product.description;
+                modalProductPrice.textContent = product.price;
+                modalProductImage.src = product.image;
+                productModal.style.display = 'block';
+            };
+
+            productsContainer.appendChild(productCard);
+        });
+
+        // Close the modal
+        closeModal.onclick = function() {
+            productModal.style.display = 'none';
+        };
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target === productModal) {
+                productModal.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>

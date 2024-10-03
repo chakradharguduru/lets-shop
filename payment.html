@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Shop - Payment</title>
+    <link rel="stylesheet" href="css/payment.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Let's Shop</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="account.html">Account</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><button id="logout-button">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="payment-container">
+        <h2>Review Your Order</h2>
+        <div id="cart-items">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div class="total-price">
+            <h3>Total Price: $<span id="total-price">0.00</span></h3>
+        </div>
+
+        <div id="customer-credit-score">
+            <h3>Your Credit Score: <span id="credit-score">0</span></h3>
+        </div>
+        
+        <div class="payment-options">
+            <h3>Payment Options:</h3>
+            <button id="proceed-payment" class="btn">Pay</button> <!-- Changed this ID to match JS -->
+            <button id="pay-with-credit-button" class="btn" style="display: none;">Pay Using Credit Score</button> <!-- Initially hidden -->
+            <p id="credit-score-requirement" style="color: red; display: none;">
+                Note: You can use credit score for payment only if it's equal to or greater than 1000.
+            </p>
+        </div>
+    </div>
+
+    <script type="module" src="js/payment.js"></script>
+</body>
+</html>
